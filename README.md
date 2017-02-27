@@ -76,11 +76,9 @@ after the registration you define the application:
 ##PASSING PARAMETERS AND OTHER VARIABLES TO DIVS OR VARS
 
 `$Zeus.application(function(){
-
 	$Scope.parameter = $RouteParameter;
 	$Scope.time = $Scope.parameter.time;
 	console.log($Scope.time); // -> time parameter defined with :time
-
 });`
 
 You can set a HTML Elements innerHTML with Scope Vars `<div zeus-bind="time"></div>`
