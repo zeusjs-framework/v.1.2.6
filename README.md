@@ -23,8 +23,9 @@ e.g.
 ##third step: create menu or something else
 to navigate to routes you must add atleast one attribute to one html element (navigation item)
 
-e.g. `<a route-location="home" route-active-class="active|home">home</a>`
-
+e.g. 	`<a route-location="home" route-active-class="active|home">home</a>`
+	`<a route-location="home" route-active-class="active otheractive|home,otherroute">home</a>`
+	
 route-location can be added to the most html elements and defines your ROUTENAME
 
 route-active-class can be added to the most html elements and defined classes if ROUTENAME is active.
@@ -56,3 +57,35 @@ route defines the url bar in your browser. e.g. http://example.org/homedir   -> 
 name defines only a variable for you to use for divs (route-items)
 
 you can define parameters like :PARAMETER
+
+Registered as
+`{ route: "/news/:time", name: "newsParameter" },`
+http://example.org/news/:time
+
+and this url http://example.org/news/testtime -> parameter : testtime
+
+
+##step six: the application
+
+after the registration you define the application:
+
+`$Zeus.application(function(){
+
+	//CODE
+
+});`
+
+##PASSING PARAMETERS AND OTHER VARIABLES TO DIVS OR VARS
+
+`$Zeus.application(function(){
+
+	$Scope.parameter = $RouteParameter;
+	$Scope.time = $Scope.parameter.time;
+	console.log($Scope.time); // -> time parameter defined with :time
+
+});`
+
+You can set a HTML Elements innerHTML with Scope Vars `<div zeus-bind="time"></div>`
+You can set a HTML Inputs Values Scope Vars `<input zeus-value="time">`
+
+This zeus-bind and zeus-value vars:  $Scope.ATTRIBUTE_VALUE
