@@ -5,7 +5,7 @@ Added Route Function
 
 #usage
 
-#first step: setup home and fallback routes
+##first step: setup home and fallback routes
 
 //home route | the event occurs when no route is set in url | e.g. http://example.org
 <base route-home="ROUTENAME">
