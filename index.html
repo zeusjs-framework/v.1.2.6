@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ZeusJS-Framework</title>
+	</head>
+	<body>
+		<base route-home="home">
+		<base route-fallback="home">
+		
+		<ul>
+			<li><a route-location="home" route-active-class="active|home">home</a></li>
+			<li><a route-location="news" route-active-class="active|news, newsParameter">news</a></li>
+			<li><a route-location="contact" route-active-class="active|contact">contact</a></li>
+		</ul>
+		
+		<div route-container>
+			<div route-item route="home">
+				<h1>home</h1>
+				<div>
+					<a route-location="news/newest">newest</a><br>
+					<a route-location="news/oldest">oldest</a>
+				</div>
+			</div>
+			<div route-item route="news, newsParameter">
+				<h1>news</h1>
+				<div route-item route="newsParameter" zeus-bind="parameter"></div>
+			</div>
+			<div route-item route="contact">contact</div>
+		</div>
+		
+		<script language="javascript" type="text/javascript" src="http://localhost/zeus/zeus-1.1.2.js"></script>
+		<script language="javascript" type="text/javascript">
+			$Zeus.route.register([	
+				{ route: "/home", name: "home" },
+				{ route: "/news", name: "news" },
+				{ route: "/news/:time", name: "newsParameter" },
+				{ route: "/contact", name: "contact" }
+			]);
+			
+			$Zeus.application(function(){
+				console.log($RouteParameter.time);
+				$Scope.parameter = $RouteParameter.time;
+			});
+		</script>
+	</body>
+</html>
