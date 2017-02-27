@@ -70,9 +70,7 @@ and this url http://example.org/news/testtime -> parameter : testtime
 after the registration you define the application:
 
 `$Zeus.application(function(){
-
 	//CODE
-
 });`
 
 ##PASSING PARAMETERS AND OTHER VARIABLES TO DIVS OR VARS
