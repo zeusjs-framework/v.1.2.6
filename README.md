@@ -1,5 +1,7 @@
 # v.1.2.1
 
+#THIS IS HTML5 ROUTE - htaccess NEEDED
+
 Added Route Function
 
 
